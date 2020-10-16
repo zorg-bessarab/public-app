@@ -13,11 +13,13 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: mbessarab/public-app
+        image: mbessarab/publicapp
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
+      imagePullSecrets:
+          - name: docker-hub
         ports:
         - containerPort: 5000
 
