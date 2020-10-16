@@ -7,5 +7,6 @@ spec:
     app: flask-app
   ports:
   - port: 5000
-    targetPort: 8080
-  type: LoadBalancer
+    targetPort: 5000
+    nodePort: 35080
+  type: NodePort
