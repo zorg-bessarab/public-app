@@ -22,7 +22,7 @@ spec:
     stage('Build Docker image') {
       git 'https://github.com/ZotakBmm/public-app'
       container('docker') {
-          sh 'docker build -t mbessarab/publicapp && docker push mbessarab/publicapp'
+          sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
       }
     }
   }
