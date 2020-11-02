@@ -17,10 +17,20 @@ spec:
     volumeMounts:
     - name: dockersock
       mountPath: /var/run/docker.sock
+    - name: docker-cfg
+      mountPath: /root/.docker
   volumes:
   - name: dockersock
     hostPath:
       path: /var/run/docker.sock
+  - name: docker-cfg
+    projected:
+      sources:
+      - secret:
+          name: regcred
+          items:
+            - key: .dockerconfigjson
+              path: config.json
 """
   ) {
 
