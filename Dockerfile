@@ -10,6 +10,6 @@ EXPOSE 80
 
 ADD https://get.aquasec.com/5.0.0/microscanner /
 RUN chmod +x /microscanner
-RUN /microscanner --full-output && rm /microscanner
+RUN /microscanner [--full-output] && rm /microscanner
 
 CMD [ "python", "./flask-app.py" ]
