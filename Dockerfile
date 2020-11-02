@@ -2,6 +2,10 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
+ENV AQUA_SERVER_URL=http://192.168.49.2:31876
+ENV AQUA_USERNAME=administrator
+ENV AQUA_PASSWORD=Passw0rd
+
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 

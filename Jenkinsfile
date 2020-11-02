@@ -6,13 +6,6 @@ spec:
   - name: docker
     image: docker:19.03
     command: ['cat']
-    env:
-    - name: AQUA_SERVER_URL
-      value: http://192.168.49.2:31876
-    - name: AQUA_USERNAME
-      value: administrator
-    - name: AQUA_PASSWORD
-      value: Passw0rd
     tty: true
     volumeMounts:
     - name: dockersock
