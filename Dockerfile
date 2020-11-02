@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-RUN apk add --no-cache python3
+RUN apk add --no-cache python3 && apk add --no-cache py-pip
 
 WORKDIR /usr/src/app
 
