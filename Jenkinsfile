@@ -30,7 +30,7 @@ spec:
   def image = "jenkins/jnlp-slave"
   node(POD_LABEL) {
     stage('Build Docker image') {
-      git 'https://github.com/ZotakBmm/public-app'
+      git branch: 'trivy', url: 'https://github.com/ZotakBmm/public-app'
       container('docker') {
           sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
       }
