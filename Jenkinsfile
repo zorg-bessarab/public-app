@@ -50,8 +50,7 @@ node (POD_LABEL) {
   }
   stage('Audit deployment yamls kubesec.io'){
         container('docker'){
-        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-deployment.yaml'
-        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-service.yaml'
+        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-deployment.yaml | jq --exit-status ".score > 0" >/dev/null'
       }
       }
   stage('Deploy to test namespace') {
