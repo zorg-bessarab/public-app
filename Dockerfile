@@ -12,6 +12,6 @@ EXPOSE 80
 
 RUN apk add curl \
     && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/master/contrib/install.sh | sh -s -- -b /usr/local/bin \
-    && trivy filesystem --exit-code 0 --no-progress /
+    && trivy filesystem --exit-code 0  /
 
 CMD [ "python", "./flask-app.py" ]

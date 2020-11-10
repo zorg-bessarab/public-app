@@ -53,6 +53,8 @@ node (POD_LABEL) {
         step('test deployment config'){
         sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-deployment.yaml'
       }
+      }
+      container('docker'){
       step('test service config'){
         sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-service.yaml'
       }
