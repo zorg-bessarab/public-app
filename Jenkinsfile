@@ -54,9 +54,8 @@ node (POD_LABEL) {
         sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-service.yaml'
       }
       }
-  }
   stage('Deploy to test namespace') {
-      container('docker')
+      container('docker'){
       sh 'echo 123'
   }
 }
