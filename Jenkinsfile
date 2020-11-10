@@ -49,14 +49,12 @@ node (POD_LABEL) {
       }
   }
   stage('Audit deployment yamls kubesec.io'){
-      def dep-conf = 'flask-app-deployment.yaml'
-      def svc-conf = 'flask-app-service.yaml'
       container('docker'){
         step('test deployment config'){
-        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < ${dep-conf}'
+        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-deployment.yaml'
       }
       step('test service config'){
-        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < ${svc-conf}'
+        sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-service.yaml'
       }
       }
   }
