@@ -4,6 +4,10 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
+  - name: kubectl
+    image: mbessarab/kubectl:latest
+    command:['/bin/sh']
+    tty: true
   - name: sonarscanner
     image: openjdk:11
     command: ['cat']
@@ -60,7 +64,7 @@ node (POD_LABEL) {
       }
     }
   stage('Deploy to test namespace') {
-    container('docker'){
+    container('kubectl'){
     withKubeConfig(caCertificate: '', clusterName: '', contextName: 'minikube', credentialsId: 'minikube', namespace: 'test', serverUrl: 'https://kubernetes.default') {
      sh 'kubectl apply -f flask-app-deployment.yaml'
     }
