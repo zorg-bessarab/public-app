@@ -65,7 +65,7 @@ node (POD_LABEL) {
     }
   stage('Deploy to test namespace') {
     container('kubectl'){
-       kubernetesDeploy configs: 'flask-app-deployment.yaml, flask-app-service.yaml', kubeConfig: [path: ''], kubeconfigId: 'minikube-jenkins', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+       kubernetesDeploy configs: 'flask-app-deployment.yaml, flask-app-service.yaml', kubeConfig: [path: ''], kubeconfigId: 'minikube-admin', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
     }
 }
 }
