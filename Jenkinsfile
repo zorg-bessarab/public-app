@@ -45,14 +45,19 @@ node (POD_LABEL) {
 }
   stage('Aqua Docker Scan') {
     container('docker') {
-    sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
+        sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
       }
   }
   stage('Audit deployment yamls kubesec.io'){
-        container('docker'){
+      container('docker'){
         sh 'docker run -i kubesec/kubesec:512c5e0 scan /dev/stdin < flask-app-deployment.yaml'
       }
       }
+  stage('Scan Image') {
+      container('docker') {
+        aqua customFlags: '', hideBase: false, hostedImage: 'mbessarab/publicapp:latest', localImage: '', locationType: 'hosted', notCompliesCmd: '', onDisallowed: 'ignore', policies: '', register: false, registry: 'Docker Hub', showNegligible: false
+      }
+    }
   stage('Deploy to test namespace') {
       container('docker'){
       sh 'echo 123'
