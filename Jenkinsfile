@@ -10,7 +10,7 @@ spec:
   - name: docker
     image: docker:19.03
     command: ["/bin/sh","-c"]
-    args: ["curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"; chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl"]
+    args: ["curl -LO "https://storage.googleapis.com/kubernetes-release/release/\$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"; chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl"]
     tty: true
     volumeMounts:
     - name: dockersock
