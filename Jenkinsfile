@@ -10,8 +10,7 @@ spec:
     tty: true
   - name: docker
     image: docker:19.03
-    command: ["/bin/sh","-c"]
-    args: ['apk add kubernetes', 'cat']
+    command: ['cat']
     tty: true
     volumeMounts:
     - name: dockersock
