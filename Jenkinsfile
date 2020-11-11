@@ -68,6 +68,5 @@ node (POD_LABEL) {
        kubernetesDeploy configs: 'flask-app-deployment.yaml, flask-app-service.yaml', kubeConfig: [path: ''], kubeconfigId: 'minikube-jenkins', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
     }
 }
-  }
 }
 }
