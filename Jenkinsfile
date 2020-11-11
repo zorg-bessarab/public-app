@@ -9,7 +9,8 @@ spec:
     tty: true
   - name: docker
     image: docker:19.03
-    command: ['cat']
+    command: ["/bin/sh","-c"]
+    args: ["curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"; chmod +x ./kubectl && sudo mv ./kubectl /usr/local/bin/kubectl"]
     tty: true
     volumeMounts:
     - name: dockersock
@@ -59,8 +60,11 @@ node (POD_LABEL) {
       }
     }
   stage('Deploy to test namespace') {
-      container('docker'){
-      sh 'echo 123'
+    container('docker'){
+    withKubeConfig(caCertificate: '', clusterName: '', contextName: 'minikube', credentialsId: 'minikube', namespace: 'test', serverUrl: 'https://kubernetes.default') {
+     sh 'kubectl apply -f flask-app-deployment.yaml'
+    }
+}
   }
 }
 }
