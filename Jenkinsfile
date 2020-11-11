@@ -69,4 +69,3 @@ node (POD_LABEL) {
   }
 }
 }
-}
