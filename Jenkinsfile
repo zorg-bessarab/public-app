@@ -65,7 +65,7 @@ node (POD_LABEL) {
     }
   stage('Deploy to test namespace') {
     container('kubectl'){
-    withKubeConfig(caCertificate: '', clusterName: '', contextName: 'minikube', credentialsId: 'minikube', namespace: 'test', serverUrl: 'https://kubernetes.default') {
+    withKubeConfig(contextName: 'minikube', credentialsId: 'minikube', namespace: 'test', serverUrl: 'https://kubernetes.default') {
      sh 'kubectl apply -f flask-app-deployment.yaml'
     }
 }
