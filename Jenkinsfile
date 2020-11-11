@@ -6,7 +6,6 @@ spec:
   containers:
   - name: kubectl
     image: mbessarab/kubectl:latest
-    command:['cat']
     tty: true
   - name: sonarscanner
     image: openjdk:11
