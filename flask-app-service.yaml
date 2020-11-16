@@ -6,7 +6,7 @@ spec:
   selector:
     app: flask-app
   ports:
-  - port: 5000
-    targetPort: 5000
+  - port: 80
+    targetPort: 80
     nodePort: 30080
   type: NodePort
