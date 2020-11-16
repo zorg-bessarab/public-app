@@ -44,7 +44,7 @@ node (POD_LABEL) {
     def scannerHome = tool 'jenkins-scanner';
     container('sonarscanner'){
      withSonarQubeEnv(credentialsId: 'sonar-server') {
-     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=python-flask-public-app -Dsonar.language=py -Dsonar.sources=."
+     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=publicapp -Dsonar.language=py -Dsonar.sources=."
      }     
      }
 }
