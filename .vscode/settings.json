@@ -1,3 +1,6 @@
 {
-    "python.pythonPath": "C:\\Users\\micha\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"
+    "python.pythonPath": "flask-app/bin/python",
+    "python.linting.mypyEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
