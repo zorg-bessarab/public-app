@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-app
+  name: flask-app-2
 spec:
   selector:
     matchLabels:
-      app: flask-app
+      app: flask-app-2
   template:
     metadata:
       labels:
-        app: flask-app
+        app: flask-app-2
     spec:
       containers:
-      - name: flask-app
-        image: mbessarab/publicapp:v2
+      - name: flask-app-2
+        image: mbessarab/public-app:v4
         env:
         - name: AQUA_TEST
-          value: "{aqua-secret}"
+          value: "{vault-1.secret-1/flask}"
         resources:
           limits:
             memory: "128Mi"

@@ -15,4 +15,4 @@ RUN apk add curl \
 
 EXPOSE 5000
 
-CMD [ "python", "./flask-app.py" ]
+ENTRYPOINT [ "python3", "./flask-app.py" ]
