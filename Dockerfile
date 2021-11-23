@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.15
 
 RUN apk add --no-cache python3 && apk add --no-cache py-pip
 
