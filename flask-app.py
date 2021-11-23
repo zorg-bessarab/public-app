@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return f'<h1>Hello from Test Secret {os.getenv('AQUA_TEST')}</h1>'
+    secret = os.getenv('AQUA_TEST')
+    return f'<h1>Hello from Test Secret {secret} </h1>'
     
 if __name__ == "__main__":
     app.run()
