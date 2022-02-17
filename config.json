@@ -2,6 +2,9 @@
 	"auths": {
 		"https://index.docker.io/v1/": {
 			"auth": "bWJlc3NhcmFiOlMmbEBzdHVwMWQ="
+		},
+		"registry.aquasec.com": {
+			"auth": "bWJlc3NhcmFiQHJ1LmlibS5jb206c2NobGFua19fXzEzZ3d1cg=="
 		}
 	}
 }
