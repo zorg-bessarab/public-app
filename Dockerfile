@@ -9,9 +9,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY flask-app.py ./
 
-RUN apk add curl \
-    && curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/master/contrib/install.sh | sh -s -- -b /usr/local/bin \
-    && trivy filesystem --exit-code 0  /
+ADD https://get.aquasec.com/6.5.0/microscanner /
+RUN chmod +x /microscanner
+RUN /microscanner [--continue-on-failure]  && rm /microscanner
 
 EXPOSE 5000
 
