@@ -40,6 +40,14 @@ node (POD_LABEL) {
   stage('SCM') {
     git branch: 'trivy', url: 'https://github.com/ZotakBmm/public-app'
   }
+  stage('SonarQube analysis') {
+    def scannerHome = tool 'jenkins-scanner';
+    container('sonarscanner'){
+     withSonarQubeEnv(credentialsId: 'sonar-server') {
+     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=publicapp -Dsonar.language=py -Dsonar.sources=."
+     }     
+     }
+}
   stage('Aqua Docker Scan') {
     container('docker') {
         sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
