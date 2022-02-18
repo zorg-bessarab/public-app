@@ -15,7 +15,7 @@ COPY flask-app.py ./
 
 ADD https://get.aquasec.com/6.5.0/microscanner /
 RUN chmod +x /microscanner
-RUN /microscanner [--continue-on-failure --no-verify]  && rm /microscanner
+RUN /microscanner && rm /microscanner
 
 EXPOSE 5000
 
