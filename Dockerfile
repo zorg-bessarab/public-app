@@ -2,9 +2,9 @@ FROM alpine:3.15
 
 RUN apk add --no-cache python3 && apk add --no-cache py-pip
 
-ENV AQUA_SERVER_URL=http://10.108.37.24
-ENV AQUA_USERNAME=jenkins
-ENV AQUA_PASSWORD=jenkin$CI1
+ARG AQUA_SERVER_URL
+ARG AQUA_USERNAME
+ARG AQUA_PASSWORD
 
 WORKDIR /usr/src/app
 

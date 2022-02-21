@@ -16,7 +16,7 @@ spec:
         image: mbessarab/public-app:v4
         env:
         - name: AQUA_TEST
-          value: "{vault-v1.secret-1/flask}"
+          value: "{vault-v1.secret-1.flask}"
         resources:
           limits:
             memory: "128Mi"

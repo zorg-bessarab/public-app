@@ -14,6 +14,13 @@ spec:
     tty: true
   - name: docker
     image: docker:19.03
+    env:
+    - name: ENV AQUA_SERVER_URL
+      value: 'http://10.108.37.24'
+    - name: AQUA_USERNAME
+      value: jenkins
+    - name: AQUA_PASSWORD
+      value: {aqua.jenkins-pwd}
     command: ['cat']
     tty: true
     volumeMounts:
@@ -42,7 +49,7 @@ node (POD_LABEL) {
   }
   stage('Aqua Docker Scan') {
     container('docker') {
-        sh 'docker build . -t mbessarab/publicapp && docker push mbessarab/publicapp'
+        sh 'docker build . -t 10.111.122.28/jfrogcr/publicapp && docker push 10.111.122.28/jfrogcr/publicapp'
       }
   }
   stage('Audit deployment yamls kubesec.io'){
