@@ -15,7 +15,7 @@ spec:
   - name: docker
     image: docker:19.03
     env:
-    - name: ENV AQUA_SERVER_URL
+    - name: AQUA_SERVER_URL
       value: 'http://10.108.37.24'
     - name: AQUA_USERNAME
       value: 'jenkins'
