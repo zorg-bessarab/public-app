@@ -18,9 +18,9 @@ spec:
     - name: ENV AQUA_SERVER_URL
       value: 'http://10.108.37.24'
     - name: AQUA_USERNAME
-      value: jenkins
+      value: 'jenkins'
     - name: AQUA_PASSWORD
-      value: {aqua.jenkins-pwd}
+      value: '{aqua.jenkins-pwd}'
     command: ['cat']
     tty: true
     volumeMounts:
